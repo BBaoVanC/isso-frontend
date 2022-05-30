@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
+import "./i18n";
 import app from "./app";
 
-//import app from "./app";
 
 document.addEventListener("DOMContentLoaded", () => {
   const container = document.getElementById("isso-thread");
