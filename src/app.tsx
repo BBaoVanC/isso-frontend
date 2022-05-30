@@ -1,7 +1,8 @@
 import React from "react";
-//import ReactDOM from "react-dom/client";
-import { ReactDOM } from "react";
+import ReactDOM from "react-dom/client";
 
-export default (root: ReactDOM.root) => {
-    root.render(<Comment content="hello world!"></Comment>);
+import { Comment } from "./template/comment";
+
+export default (root: ReactDOM.Root) => {
+  root.render(<Comment content="hello"></Comment>);
 }
