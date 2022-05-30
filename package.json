@@ -1,0 +1,34 @@
+{
+  "name": "isso-frontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "embed.ts",
+  "scripts": {
+    "build": "webpack",
+    "watch": "webpack --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BBaoVanC/isso-frontend.git"
+  },
+  "keywords": [],
+  "author": "BBaoVanC <bbaovanc@bbaovanc.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BBaoVanC/isso-frontend/issues"
+  },
+  "homepage": "https://github.com/BBaoVanC/isso-frontend#readme",
+  "devDependencies": {
+    "@types/react": "18.0.9",
+    "@types/react-dom": "18.0.5",
+    "ts-loader": "9.3.0",
+    "typescript": "4.7.2",
+    "webpack": "5.72.1",
+    "webpack-cli": "4.9.2"
+  },
+  "dependencies": {
+    "react": "18.1.0",
+    "react-dom": "18.1.0"
+  }
+}
