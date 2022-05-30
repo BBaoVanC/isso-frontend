@@ -1,7 +1,7 @@
 const path = require("path");
 
 module.exports = {
-  entry: "./src/embed.ts",
+  entry: "./src/embed.tsx",
   mode: "development",
   module: {
     rules: [

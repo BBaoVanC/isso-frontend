@@ -2,7 +2,7 @@
   "name": "isso-frontend",
   "version": "1.0.0",
   "description": "",
-  "main": "embed.ts",
+  "main": "src/isso.tsx",
   "scripts": {
     "build": "webpack",
     "watch": "webpack --watch",

@@ -2,16 +2,20 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 import "./i18n";
-import app from "./app";
+import { App } from "./isso";
 
 
 document.addEventListener("DOMContentLoaded", () => {
-  const container = document.getElementById("isso-thread");
+  const container = document.getElementById("isso-root");
   if (!container) {
-    console.error("Could not find the #isso-thread element!");
+    console.error("Could not find the #isso-root element!");
     return;
   }
 
   const root = ReactDOM.createRoot(container);
-  app(root);
+  root.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  );
 });
