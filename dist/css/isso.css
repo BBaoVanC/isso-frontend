@@ -1,4 +1,12 @@
+/* Postbox */
 .isso-textarea {
-    width: 100%;
-    resize: none;
+  width: 100%;
+  resize: none;
+}
+
+
+/* Comment */
+.isso-avatar {
+  width: 48px;
+  height: 48px;
 }

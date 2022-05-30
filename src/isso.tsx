@@ -21,7 +21,13 @@ interface ThreadProps {
 export function Thread(props: ThreadProps) {
   return (
     <div id="isso-thread">
-      <Comment id={1}/>
+      <Comment
+        id={1}
+        name="someone"
+        email="example@example.com"
+        website="https://example.com"
+        hash="lasdfhkj"
+      />
     </div>
   );
 }

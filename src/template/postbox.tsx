@@ -1,6 +1,7 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 
+
 interface PostboxProps {
 }
 export function Postbox(props: PostboxProps) {
@@ -18,11 +19,12 @@ export function PostboxTextArea(props: {}) {
 
   return (
     <div className="isso-textarea-wrapper">
-      <textarea className="isso-textarea"
-                rows={5}
-                minLength={3}
-                maxLength={65535}
-                placeholder={t("postbox-text")}
+      <textarea
+        className="isso-textarea"
+        rows={5}
+        minLength={3}
+        maxLength={65535}
+        placeholder={t("postbox-text")}
       />
       {/*<div className="isso-preview" />*/}
     </div>
