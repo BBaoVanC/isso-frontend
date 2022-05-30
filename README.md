@@ -4,6 +4,7 @@
 
 - Use modern technology (React.js, TypeScript) without worrying about bloat or package count
 - Use dependencies rather than reimplementing them manually
+- Write cleaner CSS from scratch
 - Solve some issues:
   - Fetch i18n in separate request instead of bundling all languages together
   - Improve overall DOM structure
@@ -16,10 +17,23 @@
 
 - `#isso-root` - root DOM element
   - Isso - app component
-    - Postbox - form to make a new top-level comment
-    - Thread - entire comment thread - would have multiple of Comment
+    - Postbox
+    - Thread - `#isso-thread` entire comment thread - would have multiple of Comment
       - Comment
       - ...
+
+- Postbox - `.isso-postbox` - form to create top-level comments
+  - `div.isso-textarea-wrapper` - comment text input container
+    - `textarea.isso-textarea` - the actual text input (markdown)
+    - `div.isso-preview` - hidden by default - shown when preview button is pressed
+  - `div.isso-postbox-bottom` - contains author info boxes and preview/submit buttons
+    - `div.isso-input-wrapper` - (user)name (optional)
+    - `div.isso-input-wrapper` - email address (optional)
+    - `div.isso-input-wrapper` - website (optional)
+    - `div.isso-post-action` - preview button, or edit button if previewing (toggles between those two buttons)
+    - `div.isso-post-action` - submit button
+  - `div.isso-notification-section` - container for email notifications checkbox - hidden if no email provided
+    - `input` - "Subscribe to email notification of replies" (translated using react-i18next)
 
 - Comment - `#isso-[x]` where `[x]` is the comment ID - a comment
   - Avatar - `div.isso-avatar` - author avatar container
