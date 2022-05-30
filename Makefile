@@ -18,4 +18,7 @@ build: $(JS_DST)
 watch:
 	npm run watch
 
+serve:
+	cd dist/; python -m http.server
+
 .PHONY: clean init build

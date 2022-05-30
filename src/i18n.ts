@@ -22,7 +22,7 @@ i18n
       escapeValue: false,
     },
     backend: {
-      loadPath: "http://localhost:8000/locales/{{lng}}/{{ns}}.json",
+      //loadPath: "http://localhost:8000/locales/{{lng}}/{{ns}}.json",
     },
   });
 
