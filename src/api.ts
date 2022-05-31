@@ -1,13 +1,31 @@
-import axios from "axios";
+import axios, { AxiosInstance } from "axios";
 
 export default class API {
-  endpoint: URL;
+  service: AxiosInstance;
 
   constructor(endpoint: URL) {
-    this.endpoint = endpoint;
+    this.service = axios.create({
+      baseURL: endpoint.toString(),
+      //withCredentials: true,
+    });
+  }
+
+  config() {
+    return this.service.get("/config");
   }
 
   preview(text: string) {
-    return axios.post("/preview", text);
+    return this.service.post("/preview", text);
   }
+}
+
+export interface APIServerConfig {
+  config: {
+    "reply-to-self": boolean,
+    "require-author": boolean,
+    "require-email": boolean,
+    "reply-notifications": boolean,
+    gravatar: boolean,
+    avatar: boolean,
+  },
 }

@@ -3,23 +3,20 @@ import ReactDOM from "react-dom/client";
 
 import { Postbox } from "template/postbox";
 import { Comment } from "template/comment";
-import { ClientConfig } from "config";
 
 
 interface AppProps {
-  clientConfig: ClientConfig,
 }
 export function App(props: AppProps) {
   return (
     <>
-      <Postbox clientConfig={props.clientConfig} />
-      <Thread clientConfig={props.clientConfig} />
+      <Postbox />
+      <Thread />
     </>
   );
 }
 
 interface ThreadProps {
-  clientConfig: ClientConfig,
 }
 export function Thread(props: ThreadProps) {
   return (

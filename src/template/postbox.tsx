@@ -2,11 +2,9 @@ import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import * as api from "api";
-import { ClientConfig } from "config";
 
 
 interface PostboxProps {
-  clientConfig: ClientConfig,
 }
 export function Postbox(props: PostboxProps) {
   const { t } = useTranslation();
@@ -16,11 +14,13 @@ export function Postbox(props: PostboxProps) {
   const [isPreview, setIsPreview] = useState(false);
 
   const togglePreview = () => {
+    /*
     if (!isPreview) {
       api.preview(message)
         .then((response) => setPreviewBody(response.data));
     }
     setIsPreview(!isPreview);
+   */
   }
 
   return (
