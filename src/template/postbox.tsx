@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
+import * as api from "api";
 
 
 interface PostboxProps {
@@ -12,11 +13,28 @@ export function Postbox(props: PostboxProps) {
     setIsPreview(!isPreview);
   }
 
+  const [message, setMessage] = useState("");
+
   return (
     <div className="isso-postbox">
       {isPreview
-        ? < ></>
-        : <PostboxTextarea />
+        ? <div className="isso-preview">
+            {message}
+          </div>
+        : <div className="isso-textarea-wrapper">
+            <textarea
+              className="isso-textarea"
+              rows={5}
+              minLength={3}
+              maxLength={65535}
+              placeholder={t("postbox-text")}
+              onChange={(event) => {
+                setMessage(event.target.value);
+              }}
+            >
+              {message}
+            </textarea>
+          </div>
       }
       <div className="isso-postbox-bottom">
         <div className="isso-author-inputs">
@@ -71,23 +89,6 @@ export function Postbox(props: PostboxProps) {
           </div>
         </div>
       </div>
-    </div>
-  );
-}
-
-export function PostboxTextarea(props: {}) {
-  const { t } = useTranslation();
-
-  return (
-    <div className="isso-textarea-wrapper">
-      <textarea
-        className="isso-textarea"
-        rows={5}
-        minLength={3}
-        maxLength={65535}
-        placeholder={t("postbox-text")}
-      />
-      {/*<div className="isso-preview" />*/}
     </div>
   );
 }
