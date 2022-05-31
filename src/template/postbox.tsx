@@ -1,25 +1,32 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
+
 import * as api from "api";
+import { ClientConfig } from "config";
 
 
 interface PostboxProps {
+  clientConfig: ClientConfig,
 }
 export function Postbox(props: PostboxProps) {
   const { t } = useTranslation();
 
+  const [message, setMessage] = useState("");
+  const [previewBody, setPreviewBody] = useState("");
   const [isPreview, setIsPreview] = useState(false);
+
   const togglePreview = () => {
+    if (!isPreview) {
+      api.preview(message)
+        .then((response) => setPreviewBody(response.data));
+    }
     setIsPreview(!isPreview);
   }
-
-  const [message, setMessage] = useState("");
 
   return (
     <div className="isso-postbox">
       {isPreview
-        ? <div className="isso-preview">
-            {message}
+        ? <div className="isso-preview" dangerouslySetInnerHTML={{ __html: previewBody }}>
           </div>
         : <div className="isso-textarea-wrapper">
             <textarea
@@ -31,9 +38,8 @@ export function Postbox(props: PostboxProps) {
               onChange={(event) => {
                 setMessage(event.target.value);
               }}
-            >
-              {message}
-            </textarea>
+              value={message}
+            />
           </div>
       }
       <div className="isso-postbox-bottom">
