@@ -21,6 +21,7 @@ interface ThreadProps {
 export function Thread(props: ThreadProps) {
   return (
     <div id="isso-thread">
+      {/*
       <Comment
         id={1}
         name="someone"
@@ -28,6 +29,7 @@ export function Thread(props: ThreadProps) {
         website="https://example.com"
         hash="lasdfhkj"
       />
+      */}
     </div>
   );
 }

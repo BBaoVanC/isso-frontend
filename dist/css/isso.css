@@ -1,7 +1,30 @@
 /* Postbox */
+.isso-postbox {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .isso-textarea {
   width: 100%;
   resize: none;
+}
+
+.isso-postbox-bottom {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.isso-author-inputs {
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 1;
+}
+
+.isso-input-wrapper {
+  display: flex;
+  flex-direction: column;
 }
 
 
