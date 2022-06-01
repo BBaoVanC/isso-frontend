@@ -1,6 +1,3 @@
-import { createContext } from "react";
-
-
 export type ClientConfig = {
   endpoint: URL,
 
@@ -32,5 +29,3 @@ export type ServerConfig = {
   gravatar: boolean,
   avatar: boolean,
 }
-
-export const ConfigContext = createContext<[ClientConfig, ServerConfig] | undefined>(undefined);

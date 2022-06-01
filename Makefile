@@ -1,5 +1,5 @@
 JS_SRC := $(shell find src/ -type f)
-JS_DST := dist/embed.js
+JS_DST := dist/embed.dev.js dist/embed.dev.js.map dist/embed.min.js dist/embed.min.js.LICENSE.txt
 
 
 all: build

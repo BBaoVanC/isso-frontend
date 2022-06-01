@@ -1,8 +1,6 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
 
 import { Postbox } from "template/postbox";
-import { Comment } from "template/comment";
 
 
 interface AppProps {

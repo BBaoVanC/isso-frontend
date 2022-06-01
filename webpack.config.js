@@ -1,7 +1,9 @@
+const webpack = require("webpack");
 const path = require("path");
 
-module.exports = {
+const dev = {
   entry: "./src/embed.tsx",
+  name: "dev",
   mode: "development",
   module: {
     rules: [
@@ -23,4 +25,19 @@ module.exports = {
     filename: "embed.dev.js",
     path: path.resolve(__dirname, "dist"),
   },
+  devtool: "source-map",
 };
+
+const production = Object.assign({}, dev, {
+  name: "prod",
+  mode: "production",
+  output: Object.assign({}, dev.output, {
+    filename: "embed.min.js",
+  }),
+  devtool: false,
+  optimization: {
+    usedExports: true,
+  },
+});
+
+module.exports = [dev, production];

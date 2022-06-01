@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 
 import "i18n";
 import { App } from "app";
-import { ClientConfig, ServerConfig, ConfigContext } from "config";
+import { ClientConfig, ServerConfig } from "config";
 import API, { APIServerConfig } from "api";
 
 
@@ -53,23 +53,4 @@ document.addEventListener("DOMContentLoaded", () => {
     .catch((error) => {
       console.error("Error fetching server config:", error);
     });
-
-
-  /*
-  const clientConfig: ClientConfig = {
-    endpoint,
-  };
- */
-
-
-  //const ClientConfig = React.createContext(config);
-
-  /*
-  const root = ReactDOM.createRoot(container);
-  root.render(
-    <React.StrictMode>
-      <App clientConfig={config} />
-    </React.StrictMode>
-  );
- */
 });

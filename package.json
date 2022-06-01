@@ -5,7 +5,7 @@
   "main": "src/isso.tsx",
   "scripts": {
     "build": "webpack",
-    "watch": "webpack --watch",
+    "watch": "webpack --watch --config-name=dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

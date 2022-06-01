@@ -1,3 +1,6 @@
 node_modules/
 
 dist/embed.dev.js
+dist/embed.dev.js.map
+dist/embed.min.js
+dist/embed.min.js.LICENSE.txt
