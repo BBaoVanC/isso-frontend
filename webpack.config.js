@@ -34,10 +34,10 @@ const production = Object.assign({}, dev, {
   output: Object.assign({}, dev.output, {
     filename: "embed.min.js",
   }),
-  devtool: false,
   optimization: {
     usedExports: true,
   },
+  devtool: false,
 });
 
 module.exports = [dev, production];

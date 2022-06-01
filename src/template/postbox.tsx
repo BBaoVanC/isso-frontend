@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 
-import * as api from "api";
+import api from "api";
+import { ClientConfigContext, ServerConfigContext } from "config";
 
 
 interface PostboxProps {
 }
 export function Postbox(props: PostboxProps) {
   const { t } = useTranslation();
+
+  const clientConfig = React.useContext(ClientConfigContext)!;
+  const serverConfig = React.useContext(ServerConfigContext)!;
 
   const [message, setMessage] = useState("");
   const [previewBody, setPreviewBody] = useState("");
@@ -25,6 +29,8 @@ export function Postbox(props: PostboxProps) {
 
   return (
     <div className="isso-postbox">
+      <code dangerouslySetInnerHTML={{ __html: JSON.stringify(clientConfig) }} />
+      <code dangerouslySetInnerHTML={{ __html: JSON.stringify(serverConfig) }} />
       {isPreview
         ? <div className="isso-preview" dangerouslySetInnerHTML={{ __html: previewBody }}>
           </div>

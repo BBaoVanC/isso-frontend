@@ -1,5 +1,6 @@
 import axios, { AxiosInstance } from "axios";
 
+
 export default class API {
   service: AxiosInstance;
 

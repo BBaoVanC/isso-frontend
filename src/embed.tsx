@@ -1,13 +1,14 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import { createRoot } from "react-dom/client";
 
 import "i18n";
+import { ClientConfigContext, ServerConfigContext } from "config";
 import { App } from "app";
 import { ClientConfig, ServerConfig } from "config";
 import API, { APIServerConfig } from "api";
 
 
-document.addEventListener("DOMContentLoaded", () => {
+function init() {
   const container = document.getElementById("isso-root");
   if (!container) {
     console.error("Could not find the #isso-root element!");
@@ -39,18 +40,39 @@ document.addEventListener("DOMContentLoaded", () => {
         avatar: configResponse.avatar,
       }
 
-      const root = ReactDOM.createRoot(container);
+      const root = createRoot(container);
 
-      const ConfigContext = React.createContext([clientConfig, serverConfig]);
       root.render(
         <React.StrictMode>
-          <ConfigContext.Provider value={[clientConfig, serverConfig]}>
-            <App />
-          </ConfigContext.Provider>
+          <ClientConfigContext.Provider value={clientConfig}>
+            <ServerConfigContext.Provider value={serverConfig}>
+              <App />
+            </ServerConfigContext.Provider>
+          </ClientConfigContext.Provider>
         </React.StrictMode>
       );
     })
     .catch((error) => {
       console.error("Error fetching server config:", error);
     });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const rootElement = document.getElementById("isso-root");
+  if (!rootElement) { // if there's no #isso-root, don't automatically init
+    return;
+  }
+
+  init();
 });
+
+declare global {
+  interface Window {
+    Isso: {
+      init: () => void;
+    }
+  }
+}
+window.Isso = {
+  init,
+}
